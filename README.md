@@ -15,7 +15,7 @@
 - 只装了 **Create** → 只启用 Create 联动；
 - 只装了 **AE2** → 只启用 AE2 联动；
 - **两个都装** → 两个联动都启用；
-- **两个都没装** → 不报错，仅启用冰箱 108 格扩容（自动化相关能力不注册）。
+- **两个都没装** → 仅启用冰箱 108 格扩容（自动化相关能力不注册）。
 
 > 说明：Create 和 AE2 的物品传输都走 NeoForge 标准的 `IItemHandler` capability，所以本模组只需注册一个通用能力即可同时兼容两者，无需引入它们的 API 作为编译依赖。
 
@@ -53,13 +53,9 @@ NeoForge 的 `@Shadow` 要求成员**声明在目标类自身**，而 `imageWidt
 前置：JDK 21。
 
 ```powershell
-cd C:\Users\19465\ColdSweatAutomation
-.\gradlew.bat build
+git clone https://github.com/chessMCman/ColdSweatAutomation.git
+.\gradlew build
 ```
-
-产物在 `build\libs\ColdSweatAutomation-1.0.0.jar`。
-
-> `gradle.properties` 里配置了 `127.0.0.1:7897` 代理（`maven.neoforged.net` 直连不通）。不需要代理时删掉那几行 `systemProp.*proxy*` 即可。
 
 ### 依赖坐标说明
 
