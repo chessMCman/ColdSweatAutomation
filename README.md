@@ -15,7 +15,7 @@
 - 只装了 **Create** → 只启用 Create 联动；
 - 只装了 **AE2** → 只启用 AE2 联动；
 - **两个都装** → 两个联动都启用；
-- **两个都没装** → 仅启用冰箱 108 格扩容（自动化相关能力不注册）。
+- **两个都没装** → 不报错，仅启用冰箱 108 格扩容（自动化相关能力不注册）。
 
 > 说明：Create 和 AE2 的物品传输都走 NeoForge 标准的 `IItemHandler` capability，所以本模组只需注册一个通用能力即可同时兼容两者，无需引入它们的 API 作为编译依赖。
 
@@ -53,14 +53,19 @@ NeoForge 的 `@Shadow` 要求成员**声明在目标类自身**，而 `imageWidt
 前置：JDK 21。
 
 ```powershell
-git clone https://github.com/chessMCman/ColdSweatAutomation.git
-.\gradlew build
+cd C:\Users\19465\ColdSweatAutomation
+.\gradlew.bat build
 ```
 
+产物在 `build\libs\ColdSweatAutomation-1.0.0.jar`。
+
+> `gradle.properties` 里配置了 `127.0.0.1:7897` 代理（`maven.neoforged.net` 直连不通）。不需要代理时删掉那几行 `systemProp.*proxy*` 即可。
 
 ### 依赖坐标说明
 
-`build.gradle` 里用 `compileOnly "maven.modrinth:cold-sweat:2.4.4"` 引用冷汗。若该坐标解析异常，可改用 `libs/ColdSweat-2.4.4.jar`（但 `files()` 方式的裸 jar 不会被自动重映射，需自行处理）。
+`build.gradle` 里用 `compileOnly files("libs/ColdSweat-2.4.4.jar")` 引用冷汗，jar 已提交到仓库的 `libs/` 目录，构建不依赖外部 Maven 镜像。
+
+> NeoForge 21.1 不在构建时做重混淆：Mixin 类随 jar 带 Mojang 映射，由 NeoForge 运行时在加载阶段重映射（冷汗本身也是如此），所以直接依赖裸 jar 即可，无需额外重映射。
 
 ## 已知限制
 
