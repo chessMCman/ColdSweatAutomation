@@ -53,13 +53,10 @@ NeoForge 的 `@Shadow` 要求成员**声明在目标类自身**，而 `imageWidt
 前置：JDK 21。
 
 ```powershell
-cd C:\Users\19465\ColdSweatAutomation
-.\gradlew.bat build
+git clone https://github.com/chessMCman/ColdSweatAutomation.git
+.\gradlew build
 ```
 
-产物在 `build\libs\ColdSweatAutomation-1.0.0.jar`。
-
-> `gradle.properties` 里配置了 `127.0.0.1:7897` 代理（`maven.neoforged.net` 直连不通）。不需要代理时删掉那几行 `systemProp.*proxy*` 即可。
 
 ### 依赖坐标说明
 
