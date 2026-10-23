@@ -1,0 +1,20 @@
+# Gradle
+.gradle/
+build/
+
+# IDE
+.idea/
+.vscode/
+.settings/
+*.iml
+.project
+.classpath
+bin/
+
+# Local fallback files (not needed for the build - see README)
+mappings/
+
+# Runtime / logs
+run/
+*.log
+eula.txt
