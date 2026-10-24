@@ -1,7 +1,6 @@
 package com.coldsweatautomation;
 
 import com.coldsweatautomation.core.ModMenus;
-import com.coldsweatautomation.network.NetworkEvents;
 import com.mojang.logging.LogUtils;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.fml.ModContainer;
@@ -45,6 +44,5 @@ public class ColdSweatAutomation
 
         // Events
         modBus.addListener(AutomationEvents::registerCapabilities);
-        modBus.addListener(NetworkEvents::registerPayloads);
     }
 }
