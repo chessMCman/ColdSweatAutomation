@@ -47,10 +47,12 @@ public class BigIceboxScreen extends AbstractContainerScreen<BigIceboxContainer>
             ResourceLocation.fromNamespaceAndPath("cold_sweat", "textures/gui/sprites/hearth/fuel_gauge_cold.png");
     private static final ResourceLocation COLD_FUEL_GAUGE_EMPTY =
             ResourceLocation.fromNamespaceAndPath("cold_sweat", "textures/gui/sprites/hearth/fuel_gauge_cold_empty.png");
+    // Sprite ATLAS ids - blitSprite() looks these up in the GUI atlas, so they must be the sprite
+    // name (no "textures/" prefix, no ".png"), or the missing-texture checkerboard gets drawn.
     private static final ResourceLocation POWER_ON =
-            ResourceLocation.fromNamespaceAndPath("cold_sweat", "textures/gui/sprites/hearth/power_indicator_on.png");
+            ResourceLocation.fromNamespaceAndPath("cold_sweat", "hearth/power_indicator_on");
     private static final ResourceLocation POWER_OFF =
-            ResourceLocation.fromNamespaceAndPath("cold_sweat", "textures/gui/sprites/hearth/power_indicator_off.png");
+            ResourceLocation.fromNamespaceAndPath("cold_sweat", "hearth/power_indicator_off");
 
     private static final WidgetSprites PARTICLES_BUTTON_SPRITES = new WidgetSprites(
             ResourceLocation.fromNamespaceAndPath("cold_sweat", "hearth/particle_button_on"),
@@ -156,10 +158,10 @@ public class BigIceboxScreen extends AbstractContainerScreen<BigIceboxContainer>
         {
             boolean powered = this.menu.te.isCoolingOn();
 
-            this.renderPowerIndicator(graphics, this.leftPos + BigIceboxContainer.FUEL_X + 20, this.topPos + BigIceboxContainer.FUEL_Y + 17, powered);
+            this.renderPowerIndicator(graphics, this.leftPos + BigIceboxContainer.FUEL_X + 21, this.topPos + BigIceboxContainer.FUEL_Y + 16, powered);
 
             if (CSMath.betweenInclusive(mouseX, this.leftPos + BigIceboxContainer.FUEL_X + 18, this.leftPos + BigIceboxContainer.FUEL_X + 37)
-            && CSMath.betweenInclusive(mouseY, this.topPos + BigIceboxContainer.FUEL_Y + 14, this.topPos + BigIceboxContainer.FUEL_Y + 21))
+            && CSMath.betweenInclusive(mouseY, this.topPos + BigIceboxContainer.FUEL_Y + 13, this.topPos + BigIceboxContainer.FUEL_Y + 20))
             {   this.setTooltipForNextRenderPass(Component.translatable(powered ? "gui.cold_sweat.hearth.powered" : "gui.cold_sweat.hearth.unpowered"));
             }
         }
