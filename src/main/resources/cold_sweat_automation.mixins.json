@@ -1,0 +1,14 @@
+{
+  "required": true,
+  "minVersion": "0.8.5",
+  "package": "com.coldsweatautomation.mixin",
+  "compatibilityLevel": "JAVA_21",
+  "refmap": "cold_sweat_automation.mixin-refmap.json",
+  "mixins": [
+    "IceboxBlockEntityMixin",
+    "IceboxOpenersMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}

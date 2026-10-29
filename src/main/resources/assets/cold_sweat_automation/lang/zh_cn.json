@@ -1,0 +1,4 @@
+{
+  "cold_sweat_automation.message.server_required": "该服务端未安装「冷汗自动化」模组，请联系服主安装后再连接。",
+  "cold_sweat_automation.message.client_required": "该服务端要求必须安装「冷汗自动化」模组，请安装后再连接。"
+}
